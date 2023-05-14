@@ -1,0 +1,79 @@
+% LTeX: enabled=false
+% A predefined title page
+%%-----------------------------------------
+%% Title page
+%%-----------------------------------------
+\makeatletter
+\RenewDocumentCommand\maketitle{}{
+	\begin{titlepage}
+	\begin{singlespace}
+		\begin{center}
+			UNIVERSITY OF CALIFORNIA \\
+			{\expandafter\uppercase\expandafter{\@campus}} \par
+			\bigskip
+			{\bfseries{\expandafter\uppercase\expandafter{\@title}} \par}
+			\bigskip
+			A dissertation submitted in partial satisfaction \\ 
+			of the requirements for the degree of \par
+			\bigskip
+			{\expandafter\uppercase\expandafter{\@degree}} \par
+			\bigskip
+			in \par
+			\bigskip
+			{\expandafter\uppercase\expandafter{\@field}} \par
+			\bigskip
+			by \par
+			\bigskip
+			{\bfseries \@author} \par
+			\bigskip
+			{\@degreemonth} {\@degreeyear} \par
+		\end{center}
+		\vfill
+		\begin{flushright}
+			\parbox{0.5\textwidth}{
+				The Dissertation of {\@author}\\ is approved: \par
+				\committeemember{\@chair, Chair }
+				\ifdefined\@committeememberone
+					\committeemember{\@committeememberone}
+				\fi
+				\ifdefined\@committeemembertwo
+					\committeemember{\@committeemembertwo}
+				\fi
+				\ifdefined\@committeememberthree
+					\committeemember{\@committeememberthree}
+				\fi
+				\ifdefined\@committeememberfour
+					\committeemember{\@committeememberfour}
+				\fi
+			}
+		\end{flushright}
+	
+		\bigskip\bigskip
+		\ifdefined\@committeememberfour
+		\else
+			\ifdefined\@committeememberthree
+				\medskip
+			\else
+				\bigskip
+			\fi
+		\fi
+		\noindent
+		\rule{0.42\textwidth}{0.5pt}\\
+		{\@deanlineone}\\
+		{\@deanlinetwo}\\
+		{\@deanlinethree}
+	\end{singlespace}
+	\newpage
+		\thispagestyle{empty}
+		\begin{center}
+			{
+			\ \ \ \
+			\vfill
+			Copyright \copyright\ by\par
+			\@author \par
+			\@degreeyear \par}
+			\vfill
+		\end{center}
+	\end{titlepage}
+}
+\makeatother

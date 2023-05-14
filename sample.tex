@@ -1,0 +1,164 @@
+
+% LTeX: enabled=false
+% !TeX encoding=utf8
+% !TeX program = pdflatex
+%% This is the main excute file (smaple)
+%
+%%-----------------------------------------
+%% Document Class 
+%%-----------------------------------------
+\documentclass[%
+	draft, % draft mode (no images, layout errors shown). Commented to switch to final mode
+	12pt, % font size
+]{scrbook} % Classes: scrartcl, scrreprt, scrbook
+%
+%%-----------------------------------------
+%% Preambles
+%%-----------------------------------------
+\input{preambles/basic} % must be loaded first
+\input{preambles/font} % font setting
+\input{preambles/layout} % layout setting
+\input{preambles/section} % section setting
+\input{preambles/math} % math setting
+\input{preambles/refs} % hyperref, careful about its loading
+\input{preambles/envs} % enviroments
+\input{preambles/bib} % bib packages
+\input{preambles/debug} % debug
+\input{preambles/lmacros} % lower macros
+%
+%%-----------------------------------------
+%% Pre-contents
+%%-----------------------------------------
+\input{precontents/titlepage} % Title page + copyright
+\input{precontents/front} % abstract + dedication + acknowledgements
+%
+%%-----------------------------------------
+%% Document start
+%%-----------------------------------------
+\begin{document}
+%% Front
+\frontmatter
+\input{metadata} % Metadata of the thesis
+\maketitle
+\tableofcontents
+\begin{abstract}
+	\input{contents/0.1.abstract}
+\end{abstract}
+\begin{dedication}
+	\input{contents/0.2.dedication}
+\end{dedication}
+\begin{acknowledgement}
+	\input{contents/0.3.acknowledgements}
+\end{acknowledgement}
+%% Mainmatter
+\mainmatter
+\part{Sample}
+\chapter{Sample Chapter}
+\section{Font}
+Fonts are in file \texttt{preamble/font}. 
+\begin{itemize}
+	\item Text use mainly PS Type 1 font based on Times. This is done by \texttt{newtxtext}.
+	\item Math fonts: use package \texttt{newtxmath} and \texttt{mathalpha}. I minimize the package usage, for instance, no \texttt{amssymb} (as the symbols are already in \texttt{newtxmath}).
+\end{itemize}
+\section{Layout}
+Preambles for layout (in file \texttt{preamble/layout}):
+\begin{itemize}
+	\item For page: use package \texttt{geometry}
+	\item For header and footer: use package \texttt{scrlayer-scrpage}
+	\item For line spacing: use package \texttt{setspace}
+	\item For footnote\footnote{This is one footnote}\footnote{This is another footnote.}: use package \texttt{footmisc}
+\end{itemize}
+\section{Sections}
+In file \texttt{preamble/section}.
+\begin{itemize}
+	\item chapter prefix: true 
+	\item section prefix: \S
+	\item headings: font=standardclasses, size=normal
+\end{itemize}
+\section{Table and Figure}
+Here is a table:
+\begin{center}
+	\begin{tabular}{ c | c c }
+		cell1 & cell2 & cell3 \\ 
+		\hline
+		cell4 & cell5 & cell6 \\  
+		cell7 & cell8 & cell9    
+	 \end{tabular}
+\end{center}
+Here (\cref{fig:logo}) is a figure:
+\begin{figure}[h!]
+	\centering
+  \includegraphics[width=0.2\textwidth]{images/UCSC-logo.png}
+  \caption{The banana slug}
+  \label{fig:logo}
+\end{figure}
+\clearpage
+\section{Math notations}
+Font families:
+\begin{itemize}
+	\item ABC: $ABCDEFGHIJKLMNOPQRSTUVWXYZ$
+	\item abc: $abcdefghijklmnopqrstuvwxyz$
+	\item bold italic ABC: $\BIA\BIB\BIC\BID\BIE\BIF\BIG\BIH\BII\BIJ\BIK\BIL\BIM\BIN\BIO\BIP\BIQ\BIR\BIS\BIT\BIU\BIV\BIW\BIX\BIY\BIZ$
+	\item bold italic abc: $\BIa\BIb\BIc\BId\BIe\BIf\BIg\BIh\BIi\BIj\BIk\BIl\BIm\BIn\BIo\BIp\BIq\BIr\BIs\BIt\BIu\BIv\BIw\BIx\BIy\BIz$
+	\item bold ABC: $\bfA\bfB\bfC\bfD\bfE\bfF\bfG\bfH\bfI\bfJ\bfK\bfL\bfM\bfN\bfO\bfP\bfQ\bfR\bfS\bfT\bfU\bfV\bfW\bfX\bfY\bfZ$
+	\item bold abc: $\bfa\bfb\bfc\bfd\bfe\bff\bfg\bfh\bfi\bfj\bfk\bfl\bfm\bfn\bfo\bfp\bfq\bfr\bfs\bft\bfu\bfv\bfw\bfx\bfy\bfz$
+	\item sans-serif ABC: $\sfA\sfB\sfC\sfD\sfE\sfF\sfG\sfH\sfI\sfJ\sfK\sfL\sfM\sfN\sfO\sfP\sfQ\sfR\sfS\sfT\sfU\sfV\sfW\sfX\sfY\sfZ$
+	\item sans-serif abc: $\sfa\sfb\sfc\sfd\sfe\sff\sfg\sfh\sfi\sfj\sfk\sfl\sfm\sfn\sfo\sfp\sfq\sfr\sfs\sft\sfu\sfv\sfw\sfx\sfy\sfz$
+	\item blackboard bold ABC: $\bbA\bbB\bbC\bbD\bbE\bbF\bbG\bbH\bbI\bbJ\bbK\bbL\bbM\bbN\bbO\bbP\bbQ\bbR\bbS\bbT\bbU\bbV\bbW\bbX\bbY\bbZ$
+	\item blackboard bold abc: $\bba\bbb\bbc\bbd\bbe\bbf\bbg\bbh\bbi\bbj\bbk\bbl\bbm\bbn\bbo\bbp\bbq\bbr\bbs\bbt\bbu\bbv\bbw\bbx\bby\bbz$
+	\item calligraphic ABC: $\calA\calB\calC\calD\calE\calF\calG\calH\calI\calJ\calK\calL\calM\calN\calO\calP\calQ\calR\calS\calT\calU\calV\calW\calX\calY\calZ$
+	\item script ABC: $\scrA\scrB\scrC\scrD\scrE\scrF\scrG\scrH\scrI\scrJ\scrK\scrL\scrM\scrN\scrO\scrP\scrQ\scrR\scrS\scrT\scrU\scrV\scrW\scrX\scrY\scrZ$
+	\item script abc: $\scra\scrb\scrc\scrd\scre\scrf\scrg\scrh\scri\scrj\scrk\scrl\scrm\scrn\scro\scrp\scrq\scrr\scrs\scrt\scru\scrv\scrw\scrx\scry\scrz$
+	\item fraktur ABC: $\frakA\frakB\frakC\frakD\frakE\frakF\frakG\frakH\frakI\frakJ\frakK\frakL\frakM\frakN\frakO\frakP\frakQ\frakR\frakS\frakT\frakU\frakV\frakW\frakX\frakY\frakZ$
+	\item fraktur abc: $\fraka\frakb\frakc\frakd\frake\frakf\frakg\frakh\fraki\frakj\frakk\frakl\frakm\frakn\frako\frakp\frakq\frakr\fraks\frakt\fraku\frakv\frakw\frakx\fraky\frakz$
+\end{itemize}
+See the effects of math font setting:
+\begin{itemize}
+	\item numbers: $0123456789$
+	\item Greeks upper: $\Gamma, \Delta, \Euler, \Theta, \Lambda, \Xi, \Pi, \Sigma, \Upsilon, \Phi, \Psi, \Omega$
+	\item Greeks lower: $\alpha, \beta, \gamma, \delta, \epsilon, \zeta, \eta, \theta, \iota, \kappa, \lambda, \mu, \nu, \xi, \pi, \rho, \sigma, \tau, \upsilon, \phi, \chi, \psi, \omega$
+	\item Greek var: $\varGamma, \varDelta, \varTheta, \varLambda, \varXi, \varPi, \varSigma, \varUpsilon, \varPhi, \varPsi, \varOmega, \varepsilon, \vartheta, \varpi, \varrho, \varsigma, \varphi$
+	\item uvw v.s. nu omega: $u,v,w,\nu,\omega$
+	\item yg f and rho: $y,g,f,\rho$
+	\item special letters:  $\aleph, \beth, \daleth, \gimel, \eth, \Im, \Re, \imath, \jmath, \bbdotlessi, \bbdotlessj, \ell, \hbar, \hslash, \wp, \lambdabar, \lambdaslash, \yo, \Zbar$
+	\item special notations: $\Angstrom, \partial, \nabla, \infty, \forall, \exists, \sharp, \flat, \natural, \dagger, \ddagger, \complement, \mho, \emptyset, \varnothing, \copyright$
+	\item binary relations: $\in\ni\notin\notni\subset\supset\subseteq\supseteq\stsubset\stsupset\subsetneq\supsetneq \sqsubset \sqsupset \lhd \rhd \unlhd \unrhd \leq \geq \le \ge \ll \gg \prec \succ \ltimes \rtimes \vdash  \dashv$
+	\item equivs: $\equiv \cong \sim \simeq \approx \asymp \doteq \neq, \coloneq \eqcolon \iff \dblcolon$
+\end{itemize}
+Some macros:
+\begin{itemize}
+	\item Delimiters: $\abs*{\frac{a}{y}},\norm*{\frac{a}{y}},\arga*{\frac{a}{y}},\argp*{\frac{a}{y}},\argo*{\frac{a}{y}},\argdb*{\frac{a}{y}},\argm*{\frac{a}{y}},\ceil*{\frac{a}{y}},\floor*{\frac{a}{y}},\bra*{\frac{a}{y}},\ket*{\frac{a}{y}},\normord{XYZ}$
+	\item Sets: $\Set*{\arga*{express}\given\begin{array}{c}
+		\text{condition 1},\\
+		\text{condition 2}
+	\end{array}}$ and $\GSet*{\arga*{generators}\given\arga*{relations}}$
+	\item Pairings: $\braket*{f}{X}, \pairing{f}{X}, \inner{f}{X}$.
+	\item Fun: $\fun{Fun}_{sub}^{sup}[\frac{1}{2}]$, $\grp{G}[R]$, $\cat{Ab}$, $\sheaf{O}[U]$
+	\item Notations: $\N\Z\Q\R\C\F\K\T\D\W\M\Aff\Vect\zero\one$
+	\item Notations: $\vac,\Gm,\Ga,\Dedekind,\dedekind,\Osheaf,\bigO[x]$
+	\item Supscript: $A^\htransp A^\transp A^\perp A^\Perp A^\vee A^\times A^\circ$
+	\item Accents: $\vec{u} \vv{AB} \vv*{AB}{x} \widebar{AB} \widehat{AB} \widetilde{AB} \dot{x}\ddot{x}\dddot{x}\barbar{x}\bartilde{x}\barhat{x}\tildebar{x}\tildetilde{x}\tildehat{x}\hatbar{x}\hattilde{x}\hathat{x}$
+\end{itemize}
+Test your macros (they are in \texttt{preambles/user-notations}):
+\begin{itemize}
+	\item $\iso, \dual{A}, \opp{A}, \qbinom{a}{b}, \vect{u}$
+	\item $\sequence{x}[0]{n}, \sequencesum{x}[0]{n}, \sequenceprod{x}[0]{n}$
+	\item $\Apt, \vApt, \Build, \vBuild, \vAff, \vChamber, \vFacet, \vPhi, \vSigma, \vWall, \vWeyl, \valpha, \vnu, \tf, \vf, \vC, \vF, \vW, \vX, \type$
+	\item $\odif, \adif, \asum, \longepi, \longmono$
+\end{itemize}
+\section{Math environments}
+Should be defined in \texttt{preambles/envs}
+% \begin{theorem}
+% 	bla bla
+% \end{theorem}
+\appendix
+\chapter{Illustrate}
+\section{The next pages show layout}
+\clearpage
+\layout
+\backmatter
+\input{contents/appendix}
+\input{contents/bib}
+\input{contents/index}
+\ShowMathFonts
+\end{document}

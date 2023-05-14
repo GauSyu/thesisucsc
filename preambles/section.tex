@@ -1,0 +1,13 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Section options
+%%-----------------------------------------
+\KOMAoptions{%
+	chapterprefix=true, % prefix of chapter title
+	headings=standardclasses, % use standard format for chapter/section title
+	headings=normal, % size of chapter/section title
+}
+\renewcommand{\sectionformat}{\S~\thesection\autodot\enskip} % Format of section number
+\renewcommand{\sectionmarkformat}{%
+	\textup{\S}\thesection\autodot\enskip%
+} % Format of section in runing header

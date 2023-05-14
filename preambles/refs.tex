@@ -1,0 +1,20 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Hyperrefs
+%%-----------------------------------------
+%%% packages
+\usepackage{hyperref}
+\usepackage[%
+	capitalize,nameinlink
+]{cleveref}
+%
+%%% hyperref setting
+\hypersetup{%
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=magenta,
+	urlcolor=magenta,
+}
+%%% cleveref setting
+\newcommand{\creflastconjunction}{, and\nobreakspace}%Oxford comma
+\crefname{section}{\S}{\S} % Prefix for cited section

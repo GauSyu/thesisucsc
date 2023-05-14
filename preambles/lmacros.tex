@@ -1,0 +1,62 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Macros for metadata
+%%-----------------------------------------
+%%% Taking from ucscthesis.cls
+%
+\makeatletter
+% The year the degree will be officially conferred
+\def\degreeyear#1{\gdef\@degreeyear{#1}}
+%
+% The month (March, June, September, December) the degree will be officially conferred
+\def\degreemonth#1{\gdef\@degreemonth{#1}}
+%
+% The full (unabbreviated) name of the degree
+\def\degree#1{\gdef\@degree{#1}}
+%
+% All previous degrees: one per line in chronological order
+\def\prevdegrees#1{\gdef\@prevdegrees{#1}}
+%
+% The name of your committee's chair
+\def\chair#1{\gdef\@chair{#1}}
+%
+% The names of your other committe members, one per line
+\def\committeememberone#1{\gdef\@committeememberone{#1}}
+\def\committeemembertwo#1{\gdef\@committeemembertwo{#1}}
+\def\committeememberthree#1{\gdef\@committeememberthree{#1}}
+\def\committeememberfour#1{\gdef\@committeememberfour{#1}}
+%
+% The name of the dean and dean's title(s)
+\def\deanlineone#1{\gdef\@deanlineone{#1}}
+\def\deanlinetwo#1{\gdef\@deanlinetwo{#1}}
+\def\deanlinethree#1{\gdef\@deanlinethree{#1}}
+%
+% The name of your degree's field (e.g. Psychology, Computer Science)
+\def\field#1{\gdef\@field{#1}}
+%
+% You have to define the campus name twice because I can't figure out
+% how to get the TeX \uppercase macro to work for me (EVM, 9/21/94)
+%
+% The name of your UC Campus CAPITALIZED (e.g. Berkeley, Los Angeles)
+\def\campus#1{\gdef\@campus{#1}}
+%
+% Set the font that will be used in the front matter headings
+\def\fmfont{\fontsize\@xiipt{14.5}\selectfont}
+\def\fmsmallfont{\fontsize\@xiipt{14pt}\selectfont}
+%
+% Print committe members
+\NewDocumentCommand\committeemember{m}{
+	\bigskip
+	\ifdefined\@committeememberfour
+	\else
+		\ifdefined\@committeememberthree
+			\smallskip
+		\else
+			\medskip
+		\fi
+	\fi
+	\rule{0.45\textwidth}{0.5pt}\\
+	{#1}\par
+}
+%
+\makeatother

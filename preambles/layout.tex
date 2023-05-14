@@ -1,0 +1,64 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Page Layout
+%%-----------------------------------------
+% Don't use 'usegeometry' option in KOMA bec it will cause over-specification
+\usepackage{geometry}
+% Directly use geometry to override scrbook
+\geometry{%
+%%% Papersize % CANNOT change in the middle of the document
+	letterpaper, % I find us thesis often use letter size
+%%% Bodysize
+	includehead,  % includes the head of the page, \headheight and \headsep, into total body.
+	% includefoot,  % includes the foot of the page, \footskip, into total body.
+%%% Margin
+	% UCSC: Every page of the dissertation or thesis must be kept within margins set as follows: a minimum margin of 1.5 inches (for binding purposes) on the left side of the page; 1.25 inches at the right side; 1.25 inches at the top and the bottom of the page. Page numbers must print at least 0.75 inches from the edge of the page. 
+	inner=1.5in, % inner margin
+	outer=1.25in, % outer margin
+	top=1.25in, % top margin
+	bottom=1.25in, % bottom margin
+	footskip=0.45in, % space between bottom of text and foot, do not excess 1.25in - 0.75in = 0.5in
+%%% Miscs
+	twoside,       % switches on twoside mode with left and right margins swapped on verso pages.
+}
+%
+%%-----------------------------------------
+%% Header and Footer
+%%-----------------------------------------
+\usepackage[%
+	singlespacing=true, % Use single spacing for header and footer
+]{scrlayer-scrpage} % Cannot use fancyhdr
+% \pagestyle{plain} % All pages are plain
+%%% Header
+%%% Footer
+\ifoot[]{} % footer to inner side
+\cfoot[\pagemark]{\pagemark} % footer in the center
+\ofoot[]{} % footer to outer side
+%
+%%-----------------------------------------
+%% Line spacing
+%%-----------------------------------------
+\usepackage[doublespacing]{setspace} % 
+% UCSC: Double spacing throughout the dissertation/thesis should be used except in footnotes, indented quotations set off from the text, bibliographic entries of more than one line, and materials such as captions or tables and appendices of data. 
+%
+%%-----------------------------------------
+%% Footnote
+%%-----------------------------------------
+\usepackage[%
+	perpage,     % Reset on each page
+	% para,       % Place footnotes side by side of in one paragraph.
+	% side,       % Place footnotes in the margin
+	ragged,      % Use RaggedRight
+	symbol,      % use symbols instead of numbers
+	% symbol*,     % use symbols instead of numbers
+	bottom,      % Footnotes appear always on bottom.
+	stable,      % Make footnotes stable in section titles
+	% norule,     % suppress rule above footnotes
+	multiple,    % rearrange multiple footnotes intelligent in the text.
+]{footmisc} % must load setspace before footmisc
+\setfnsymbol{wiley} % select a set of footnote symbols
+%
+%%-----------------------------------------
+%% Mics
+%%-----------------------------------------
+\usepackage{multicol} % Env for multicolumn

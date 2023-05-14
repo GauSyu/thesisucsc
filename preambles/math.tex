@@ -1,0 +1,36 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Math Settings
+%%-----------------------------------------
+%%% packages
+\usepackage[%
+	leqno, % put eq num to the left
+]{mathtools}% mathtools already load amsmath
+\usepackage{interval} % Interval
+\usepackage{mleftright} % mathleftright
+\usepackage{leftindex} % better left superscript
+\usepackage{tikz} % tikz
+% 
+%%% Notations
+\input{preambles/notations}
+%%% Tikzs
+\usetikzlibrary{cd} 
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{intersections}
+\usetikzlibrary{shapes}
+\usetikzlibrary{fit}
+\tikzset{%
+Venn/.style={
+ellipse, draw, color=gray!50,
+minimum height=50pt,minimum width=30pt}
+}
+\usetikzlibrary{braids}
+\usetikzlibrary{shapes.geometric}
+%%% Dynkin digram
+\pgfkeys{/Dynkin diagram,
+  edge length=0.4in,
+  fold radius=0.4in
+}

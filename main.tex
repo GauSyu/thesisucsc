@@ -1,0 +1,61 @@
+
+% LTeX: enabled=false
+% !TeX encoding=utf8
+% !TeX program = pdflatex
+%% This is the main excute file (smaple)
+%
+%%-----------------------------------------
+%% Document Class 
+%%-----------------------------------------
+\documentclass[%
+	% draft, % draft mode (no images, layout errors shown). Commented to switch to final mode
+	12pt, % font size
+]{scrbook} % Classes: scrartcl, scrreprt, scrbook
+%
+%%-----------------------------------------
+%% Preambles
+%%-----------------------------------------
+\input{preambles/basic} % must be loaded first
+\input{preambles/font} % font setting
+\input{preambles/layout} % layout setting
+\input{preambles/section} % section setting
+\input{preambles/math} % math setting
+\input{preambles/refs} % hyperref, careful about its loading
+\input{preambles/envs} % enviroments
+\input{preambles/bib} % bib packages
+\input{preambles/lmacros} % lower macros
+%
+%%-----------------------------------------
+%% Pre-contents
+%%-----------------------------------------
+\input{precontents/titlepage} % Title page + copyright
+\input{precontents/front} % abstract + dedication + acknowledgements
+%
+%%-----------------------------------------
+%% Document start
+%%-----------------------------------------
+\begin{document}
+%% Front
+\frontmatter
+\input{metadata} % Metadata of the thesis
+\maketitle
+\tableofcontents
+\begin{abstract}
+	\input{contents/0.1.abstract}
+\end{abstract}
+\begin{dedication}
+	\input{contents/0.2.dedication}
+\end{dedication}
+\begin{acknowledgement}
+	\input{contents/0.3.acknowledgements}
+\end{acknowledgement}
+%% Mainmatter
+\mainmatter
+\input{contents/1.introduction}
+\input{contents/2.preliminary}
+\input{contents/3.mainwork}
+\backmatter
+\input{contents/appendix}
+\input{contents/bib}
+\input{contents/index}
+\end{document}

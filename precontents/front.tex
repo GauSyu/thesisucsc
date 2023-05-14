@@ -1,0 +1,53 @@
+% LTeX: enabled=false
+% A predefined abstract page
+%%-----------------------------------------
+%% Abstract page
+%%-----------------------------------------
+%
+\makeatletter
+\NewDocumentEnvironment{abstract}{}{
+	\clearpage
+	\thispagestyle{plain}
+	\addchaptertocentry{}{Abstract}
+	\begin{center}
+		{\textbf{\Large Abstract}\par\bigskip
+		\@title\par\bigskip
+		by\par\bigskip
+		\@author}
+	\end{center}
+	\par
+}{
+	\clearpage
+}
+\makeatother
+%%-----------------------------------------
+%% Dedication page
+%%-----------------------------------------
+%
+\RenewDocumentEnvironment{dedication}{}{
+	\clearpage
+	\thispagestyle{plain}
+	\addchaptertocentry{}{Dedication}
+	\begin{center}
+		\ \ \ \
+		\vfill
+}{
+		\vfill
+	\end{center}
+	\clearpage
+}
+%%-----------------------------------------
+%% Acknowledgements page
+%%-----------------------------------------
+%
+\NewDocumentEnvironment{acknowledgement}{}{
+	\clearpage
+	\thispagestyle{plain}
+	\addchaptertocentry{}{Acknowledgments}
+	\begin{center}
+		\textbf{\Large Acknowledgements}
+	\end{center}
+	\par
+}{
+	\clearpage
+}

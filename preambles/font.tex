@@ -1,0 +1,68 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Font Settings
+%%-----------------------------------------
+%%% Text Font
+\usepackage[T1]{fontenc} % T1 font
+\usepackage[type1text]{newtxtext} % supersedes pslatex, for PS Type1 Fonts, based on Times
+\usepackage[utf8]{inputenc} % Inputs will be encoded in UTF-8, comment out if not needed
+%
+%%% Math Font
+% This is complicated!
+\usepackage[%
+%%% Math font set
+	% libertine, % use Libertine rather than Times
+	% stix2, % use StixTwoMath rather than Times
+	% ebgaramond, % use EBGaramond rather than Times
+	% noto, % use NotoSerif rather than Times
+	% notosans, % use NotoSans rather than Times
+	% nc, % use ScholaX rather than Times + newtxmath Greek letters
+	% ncf, % use ScholaX rather than Times + fourier Greek letters
+	% minion, % use MinionPro rather than	Times, commercial 
+	% garamondx, % use garamondx rather than Times, getnonfreefonts
+	% baskervaldx, % use Baskervaldx rather than Times
+	% baskervillef, % use BaskervilleF rather than Times
+	% xcharter, % use XCharter rather than Times
+	cochineal, % use cochineal rather than Times
+%%% specific modification
+%%%%% origin
+	% varg, % distinctive g,v,w,y
+	% varvw, % distinctive v,w
+%%%%% Libertine
+	% libaltvw, % Libertine upsilon v,w
+	% liby, % Libertine’s italic y
+%%%%% XCharter
+	% alty, % alter y, for xcharter
+	% noxchvw, % original v,w instead of xcharter
+%%%%% cochineal
+	% cochf, % long italic f
+	cochrho, % long rho
+%%% Greek letters
+	% slantedGreek, % all Greek symbols are slanted
+	% frenchmath, % uppercase Roman and Greek	letters to upright, and lowercase Greek letters to upright
+%%% specific notations
+	% upint, % upright integrals
+	% smallerops, % render big operators other than integrals
+	% cmbraces, % use Computer Modern braces
+	% nonewtxmathopt, % do not use optical math sizes
+	% subscriptcorrection, % special spacing of some subscripts WARNING: not compatible with e-type args
+%%% Blackboard Bold
+	% varbb, % makes \mathbb{} synonymous	with \varmathbb{}
+	vvarbb, % STIX math fonts
+	% noamssymbols, % prevent TXAMSadd from loading, used with amssymb
+	useBImacros, % use predefined Bold Math Italic macros, to avoid use package 'bm'
+%%% Misc
+	amsthm, % load amsthm
+	% noOT1, % use same encoding as text, possibly losing some calls for Greek uppercase
+	nosymbolsc, % avoid use symbolsC fonts, saving a math family
+]{newtxmath}
+% mathalpha: set fonts for scr, cal, frak, and bb
+% \usepackage[%
+% 	% scr=*, % set mathscr to *
+% 	% cal=*, % set mathcal to *
+% 	% frak=*, % set mathfrak to * 
+% 	% bb=*, % set mathbb to *
+% ]{mathalpha} % Read the manuel for font names
+%
+% \usepackage{bm} %
+%

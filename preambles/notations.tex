@@ -1,0 +1,182 @@
+% LTeX: enabled=false
+%%-----------------------------------------
+%% Macros for notations
+%%-----------------------------------------
+%
+% Math Alphabeta
+% Delimiters
+% Relations
+% MathOperators
+% Standard notations
+% Others
+%
+%%-----------------------------------------
+%% Creat a bunch of commands
+%%-----------------------------------------
+\ExplSyntaxOn
+% #1 = command to use
+% #2 = optional prefix
+% #3 = list
+\NewDocumentCommand{\createbunch}{ m O{} m }
+	{
+		\clist_map_inline:nn { #3 } { \cs_new_protected:cpn { #2 ##1 } { #1 { ##1 } } }
+	}
+\cs_new:Nn \cs_createbunch:nnN 
+	{
+		\clist_map_inline:Nn #3 { \cs_new_protected:cpn { #2 ##1 } { #1 { ##1 } } }
+	}
+%
+%%-----------------------------------------
+%% Math Alphabeta
+%%-----------------------------------------
+%%% A list of upper case letters
+\clist_const:Nn \g_Alphabeta_clist 
+	{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z} 
+%%% A list of lower case letters 
+\clist_const:Nn \g_alphabeta_clist 
+	{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z} 
+%%% \mathbf{*} -> \bf*
+\cs_createbunch:nnN {\mathbf} {bf} \g_Alphabeta_clist 
+\cs_createbunch:nnN {\mathbf} {bf} \g_alphabeta_clist
+%%% \mathbb{*} -> \bb*
+\cs_createbunch:nnN {\mathbb} {bb} \g_Alphabeta_clist 
+\cs_createbunch:nnN {\mathbb} {bb} \g_alphabeta_clist
+%%% \mathcal{*} -> \cal*
+\cs_createbunch:nnN {\mathcal} {cal} \g_Alphabeta_clist 
+%%% \mathscr{*} -> \scr*
+\cs_createbunch:nnN {\mathscr} {scr} \g_Alphabeta_clist 
+\cs_createbunch:nnN {\mathscr} {scr} \g_alphabeta_clist 
+%%% \mathfrak{*} -> \frak*
+\cs_createbunch:nnN {\mathfrak} {frak} \g_Alphabeta_clist 
+\cs_createbunch:nnN {\mathfrak} {frak} \g_alphabeta_clist 
+%%% \mathsf{*} -> \sf*
+\cs_createbunch:nnN {\mathsf} {sf} \g_Alphabeta_clist 
+\cs_createbunch:nnN {\mathsf} {sf} \g_alphabeta_clist 
+\ExplSyntaxOff
+\providecommand\bm[1]{\boldsymbol{#1}} % Bold symbols
+%
+%%-----------------------------------------
+%% Delimiters
+%%-----------------------------------------
+%%% one-variable
+\DeclarePairedDelimiterX\abs[1]\lvert\rvert
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % |...|
+\DeclarePairedDelimiterX\norm[1]\lVert\rVert
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % ||...||
+\DeclarePairedDelimiterX\arga[1]\langle\rangle
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % <...>
+\DeclarePairedDelimiterX\argp[1]\lparen\rparen
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % (...)
+\DeclarePairedDelimiterX\argo[1]\lbrack\rbrack
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % [...]
+\DeclarePairedDelimiterX\argdb[1]\dlb\drb
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % [[]...]]
+\DeclarePairedDelimiterX\argm[1]\lbrace\rbrace
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % {...}
+\DeclarePairedDelimiterX\ceil[1]\lceil\rceil
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % ceiling
+\DeclarePairedDelimiterX\floor[1]\lfloor\rfloor
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % floor
+\DeclarePairedDelimiterX\bra[1]\langle\vert
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % <...|
+\DeclarePairedDelimiterX\ket[1]\vert\rangle
+	{ \ifblank{#1}{\:\cdot\:}{#1} } % |...>
+\NewDocumentCommand\normord{m}{\mathopen{:}#1\mathclose{:}} % :...:
+%%% bi-variable
+\DeclarePairedDelimiterX\braket[2]\langle\rangle
+	{
+		\ifblank{#1}{\:\cdot\:}{#1}
+		\,\delimsize\vert\,\mathopen{}
+		\ifblank{#2}{\:\cdot\:}{#2}
+	} % <..|..>
+\DeclarePairedDelimiterX\pairing[2]\langle\rangle
+	{ \ifblank{#1}{\:\cdot\:}{#1}, \ifblank{#2}{\:\cdot\:}{#2} } % <..,..>
+\DeclarePairedDelimiterX\inner[2]\lparen\rparen
+	{ \ifblank{#1}{\:\cdot\:}{#1}, \ifblank{#2}{\:\cdot\:}{#2} } % (..,..)
+%%% Sets
+\providecommand\given{} % emp delimiter
+\NewDocumentCommand \SetSymbol {o}
+  { \nonscript\:#1\vert\allowbreak\nonscript\:\mathopen{} }  % delimiter in set
+\DeclarePairedDelimiterX\Set[1]\{\}
+  { \renewcommand\given{\SetSymbol[\delimsize]}#1 } % Set
+\DeclarePairedDelimiterX\GSet[1]\langle\rangle
+  { \renewcommand\given{\SetSymbol[\delimsize]}#1 } % Generator
+%
+%%-----------------------------------------
+%% Relations
+%%-----------------------------------------
+%%% sub/supsets
+\let\oldsubset\subset
+\let\oldsupset\supset
+\RenewDocumentCommand \subset {} {\subseteq}
+\NewDocumentCommand \stsubset {} {\oldsubset}
+\RenewDocumentCommand \supset {} {\supseteq}
+\NewDocumentCommand \stsupset {} {\oldsupset}
+%%% le/ge
+\RenewDocumentCommand \le {} { \leqslant }
+\RenewDocumentCommand \ge {} { \geqslant }
+% 
+%%-----------------------------------------
+%% MathOperators
+%%-----------------------------------------
+%%% Functions
+% \NewDocumentCommand \fun { O{p} m e{^_} O{} }
+%   {%
+%     \operatorname{#2}%
+%     \IfValueT{#3}{\sp{#3}}%
+%     \IfValueT{#4}{\sb{#4}}%
+%     \IfBlankTF{#5}{}{\csname arg#1\endcsname*{#5}}%
+%   }
+\NewDocumentCommand \fun { m e{^_} O{} }
+  {%
+    \operatorname{#1}%
+    \IfValueT{#2}{\sp{#2}}%
+    \IfValueT{#3}{\sb{#3}}%
+    \ifblank{#4}{}{\mleft(#4\mright)}%
+  }
+%%% other fonts
+\NewDocumentCommand \mfrak { m } {\fun{\mathfrak{#1}}}
+\NewDocumentCommand \mcal { m } {\fun{\mathcal{#1}}}
+\NewDocumentCommand \mscr { m } {\fun{\mathscr{#1}}}
+\NewDocumentCommand \msf { m } {\fun{\mathsf{#1}}}
+\NewDocumentCommand \mbf { m } {\fun{\mathbf{#1}}}
+\NewDocumentCommand \mbb { m } {\fun{\mathbb{#1}}}
+\NewDocumentCommand \grp { m } {\fun{\mathsf{#1}}}
+\NewDocumentCommand \cat { m } {\fun{\mathbf{#1}}}
+\NewDocumentCommand \sheaf { m } {\fun{\mathscr{#1}}}
+% 
+%%-----------------------------------------
+%% Standard notations
+%%-----------------------------------------
+\createbunch{\mathbb}{N,Z,Q,R,C,F,K,T,D,W,M} % like \N
+\NewDocumentCommand \Aff {} {\mathbb{A}} % Affine Space
+\NewDocumentCommand \Vect {} {\mathbb{V}} % Vector Space
+\createbunch{\ensuremath\fun}
+	{Hom,End,Aut,Ext,Tor,Cotor,Ker,Coker,coker,Id,id,tr,pt,Ob,Mor,Pic,Gal,Mod,Gr,gr,Ind,Proj,Ho,Sq} % List the use math operators
+\NewDocumentCommand \zero {} 
+	{\mathbb{0}} % zero object
+\NewDocumentCommand \one {} 
+	{\mathbb{1}} % unit object
+\NewDocumentCommand \vac {} 
+	{\ket{0}} % vacuum vector
+\NewDocumentCommand \Gm {} 
+	{\fun{\mathbb{G}}_{\mathrm{m}}} % Multiplicative group
+\NewDocumentCommand \Ga {} 
+	{\fun{\mathbb{G}}_{\mathrm{a}}} % Additive group
+\NewDocumentCommand \Dedekind {} 
+	{\mathcal{O}} % Dedekind domain
+\NewDocumentCommand \dedekind {} 
+	{{\scriptstyle\Dedekind}} % small Dedekind domain
+\NewDocumentCommand \Osheaf {} 
+	{\fun{\mathscr{O}}} % Structure sheaf
+\NewDocumentCommand \bigO {} 
+	{\fun{\mathbf{O}}} % Big O
+%%% Yoneda embedding from Theo Johnson-Freyd and Claudia Scheimbauer
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
+\NewDocumentCommand\yo{}{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
+% 
+%%-----------------------------------------
+%% Other notations: modify as needed
+%%-----------------------------------------
+\input{preambles/user-notations}
