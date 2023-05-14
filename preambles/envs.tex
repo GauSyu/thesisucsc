@@ -2,3 +2,16 @@
 %%-----------------------------------------
 %% Enviroments
 %%-----------------------------------------
+\numberwithin{equation}{section} % How eq numbered
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+
+\newtheorem{conj}{Conjecture}[section]
+
+\theoremstyle{definition}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}

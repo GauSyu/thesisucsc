@@ -8,7 +8,7 @@
 %% Document Class 
 %%-----------------------------------------
 \documentclass[%
-	draft, % draft mode (no images, layout errors shown). Commented to switch to final mode
+	% draft, % draft mode (no images, layout errors shown). Commented to switch to final mode
 	12pt, % font size
 ]{scrbook} % Classes: scrartcl, scrreprt, scrbook
 %
@@ -148,9 +148,17 @@ Test your macros (they are in \texttt{preambles/user-notations}):
 \end{itemize}
 \section{Math environments}
 Should be defined in \texttt{preambles/envs}
-% \begin{theorem}
-% 	bla bla
-% \end{theorem}
+\begin{thm}
+	bla bla
+	\[
+		\begin{aligned}
+			expression
+		\end{aligned}
+	\]
+\end{thm}
+\begin{proof}
+	bla
+\end{proof}
 \appendix
 \chapter{Illustrate}
 \section{The next pages show layout}
