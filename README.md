@@ -3,7 +3,7 @@ Dissertation Template For UC Santa Cruz
 
 Following [**UCSC Dissertation Thesis Guidelines (Rev July, 2021)**](https://graddiv.ucsc.edu/current-students/pdfs/dissertation-thesis-guidelines.pdf)
 
-Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I use [`scrbook`](https://www.ctan.org/pkg/scrbook) class instead (so almost none of that class is used here).
+Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I use [`scrbook`](https://www.ctan.org/pkg/scrbook) class instead (so almost none of its code is used here).
 
 ### How to use?
 1. Put your notation macros in `user/notations` [^0]
