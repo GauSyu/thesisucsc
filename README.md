@@ -38,6 +38,7 @@ Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I
 - Modify section headings: `preamble/section`
 - Here is bib settings: `preambles/bib`
 - Math settings (such as `tikz`): `preambles/math`
+- Cross-reference: `preambles/refs`
 - Title page is defined in `precontents/titlepage`
 - Other front page is defined in `precontents/front`
 - Others:
