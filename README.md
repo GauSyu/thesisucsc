@@ -6,7 +6,7 @@ Following [**UCSC Dissertation Thesis Guidelines (Rev July, 2021)**](https://gra
 Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I use [`scrbook`](https://www.ctan.org/pkg/scrbook) class instead (so almost none of that class is used here).
 
 ### How to use?
-1. Put your notation macros in `preambles/math`
+1. Put your notation macros in `preambles/user-notations`
 2. Put your enviroment definitions (such as `\newtheorem`) in `preambles/envs`
 3. Put your metadata (such as `title`, `author`, `field`, `committeemember`, etc.) in `metadata`
 4. Put images in `images/`
@@ -33,6 +33,14 @@ Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I
   - For line spacing: use package `setspace`
   - For footnote: use package `footmisc`
 - Modify section headings: `preamble/section`
+- Here is bib settings: `preambles/bib`
+- Math settings (such as `tikz`): `preambles/math`
+- Title page is defined in `precontents/titlepage`
+- Other front page is defined in `precontents/front`
+- Others:
+    - `preambles/basic`: something usually loaded first
+    - `preambles/bugfix`: used to put codes related to bug fix
+    - `preambles/lmacros`: for lower(=non-user) level codes
 
 ### Some remark
 The template minimized the number of packages to avoid conflicts. Some possible conflicts:
