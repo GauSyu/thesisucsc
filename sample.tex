@@ -85,16 +85,18 @@ In file \texttt{preamble/section}.
 	\item headings: font=standardclasses, size=normal
 \end{itemize}
 \section{Table and Figure}
-Here is a table:
-\begin{center}
+Here is a table (\cref{table:1}) and a figure (\cref{fig:logo}):
+\begin{table}[h!]
+	\centering
 	\begin{tabular}{ c | c c }
 		cell1 & cell2 & cell3 \\ 
 		\hline
 		cell4 & cell5 & cell6 \\  
 		cell7 & cell8 & cell9    
 	 \end{tabular}
-\end{center}
-Here (\cref{fig:logo}) is a figure:
+	 \caption{Table to test captions and labels.}
+	 \label{table:1}
+\end{table}
 \begin{figure}[h!]
 	\centering
   \includegraphics[width=0.2\textwidth]{images/UCSC-logo.png}
