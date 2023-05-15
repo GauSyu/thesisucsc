@@ -46,9 +46,11 @@
 \frontmatter
 \input{metadata} % Metadata of the thesis
 \maketitle
-\tableofcontents
-\listoffigures
-\listoftables
+\begin{singlespace}
+	\tableofcontents
+	\listoffigures
+	\listoftables
+\end{singlespace}
 \begin{abstract}
 	\input{contents/0.1.abstract}
 \end{abstract}
@@ -65,6 +67,8 @@
 \input{contents/3.mainwork}
 \backmatter
 \input{contents/appendix}
-\input{contents/bib}
-\input{contents/index}
+\begin{singlespace}
+	\input{contents/bib}
+	\input{contents/index}
+\end{singlespace}
 \end{document}
