@@ -145,34 +145,3 @@
 \NewDocumentCommand \cat { m } {\fun{\mathbf{#1}}}
 \NewDocumentCommand \sheaf { m } {\fun{\mathscr{#1}}}
 % 
-%%-----------------------------------------
-%% Standard notations
-%%-----------------------------------------
-\createbunch{\mathbb}{N,Z,Q,R,C,F,K,T,D,W,M} % like \N
-\NewDocumentCommand \Aff {} {\mathbb{A}} % Affine Space
-\NewDocumentCommand \Vect {} {\mathbb{V}} % Vector Space
-\createbunch{\ensuremath\fun}
-	{Hom,End,Aut,Ext,Tor,Cotor,Ker,Coker,coker,Id,id,tr,pt,Ob,Mor,Pic,Gal,Mod,Gr,gr,Ind,Proj,Ho,Sq} % List the use math operators
-\NewDocumentCommand \zero {} 
-	{\mathbb{0}} % zero object
-\NewDocumentCommand \one {} 
-	{\mathbb{1}} % unit object
-\NewDocumentCommand \vac {} 
-	{\ket{0}} % vacuum vector
-\NewDocumentCommand \Gm {} 
-	{\fun{\mathbb{G}}_{\mathrm{m}}} % Multiplicative group
-\NewDocumentCommand \Ga {} 
-	{\fun{\mathbb{G}}_{\mathrm{a}}} % Additive group
-\NewDocumentCommand \Dedekind {} 
-	{\mathcal{O}} % Dedekind domain
-\NewDocumentCommand \dedekind {} 
-	{{\scriptstyle\Dedekind}} % small Dedekind domain
-\NewDocumentCommand \Osheaf {} 
-	{\fun{\mathscr{O}}} % Structure sheaf
-\NewDocumentCommand \bigO {} 
-	{\fun{\mathbf{O}}} % Big O
-%%% Yoneda embedding from Theo Johnson-Freyd and Claudia Scheimbauer
-\DeclareFontFamily{U}{min}{}
-\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
-\NewDocumentCommand\yo{}{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
-% 
