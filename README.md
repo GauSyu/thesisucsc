@@ -3,25 +3,28 @@ Dissertation Template For UC Santa Cruz
 
 Following [**UCSC Dissertation Thesis Guidelines (Rev July, 2021)**](https://graddiv.ucsc.edu/current-students/pdfs/dissertation-thesis-guidelines.pdf)
 
-Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I use [`scrbook`](https://www.ctan.org/pkg/scrbook) class instead (so almost none of that class is used here).
+Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I use [`scrbook`](https://www.ctan.org/pkg/scrbook) class instead (so almost none of its code is used here).
 
 ### How to use?
-1. Put your notation macros in `preambles/user-notations`
-2. Put your enviroment definitions (such as `\newtheorem`) in `preambles/envs`
-3. Put your metadata (such as `title`, `author`, `field`, `committeemember`, etc.) in `metadata`
-4. Put images in `images/`
+1. Put your notation macros in `user/notations` [^0]
+2. Put your enviroment definitions (such as `\newtheorem`) in `user/enviroments` [^0]
+3. Put any other preambles in `user/additions` [^1]
+4. Put your metadata (such as `title`, `author`, `field`, `committeemember`, etc.) in `metadata`
+5. Put images in `images/`
 6. Put actual contents in `contents/`. Note that 
     - `abstract` is in `contents/0.1.abstract`
     - `dedication` is in `contents/0.2.dedication`
     - `acknowledgements` is in `contents/0.3.acknowledgements`
     - `appendix` is in `contents/appendix`
-    - `bibliography` is in `contents/bib` [^1]
-    - `index` is in `contents/index` [^2]
+    - `bibliography` is in `contents/bib` [^2]
+    - `index` is in `contents/index` [^3]
 8. Complie `main.tex`
 9. If you need to use packages or midify the settings, see `sample.pdf` or below for which .tex file to edit.
 
-[^1]:I use `amsrefs` and put `bib` data directly in `contents/bib`. If you don't like that, you can instead put `\bibliography{your bib file}` instead of a raw `bib` data. Note that no `\bibliographystyle` is needed.
-[^2]:In case you want to customize index
+[^0]:You can empty these file and put your stuff instead.
+[^1]:Be careful about the package conflicts. One way to handle this is to use `scrhack` (see the manual of `scrbook`)
+[^2]:I use `amsrefs` and put `bib` data directly in `contents/bib`. If you don't like that, you can instead put `\bibliography{your bib file}` instead of a raw `bib` data. Note that no `\bibliographystyle` is needed.
+[^3]:In case you want to customize index
 
 ### Modify settings
 - Fonts are in file `preamble/font`
