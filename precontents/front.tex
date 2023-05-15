@@ -1,5 +1,5 @@
 % LTeX: enabled=false
-% A predefined abstract page
+% A predefined page
 %%-----------------------------------------
 %% Abstract page
 %%-----------------------------------------
@@ -15,6 +15,9 @@
 		by\par\bigskip
 		\@author}
 	\end{center}
+	\ifdefined\@keywords
+		\paragraph*{Key words:} {\@keywords}
+	\fi
 	\par
 }{
 	\clearpage
@@ -51,3 +54,17 @@
 }{
 	\clearpage
 }
+%
+%%-----------------------------------------
+%% PDF metadata
+%%-----------------------------------------
+\makeatletter
+\hypersetup{%
+	pdftitle={@title}, % title of PDF
+	pdfauthor={@author}, % author of PDF
+}
+
+\ifdefined\@keywords
+\hypersetup{pdfkeywords={@keywords}} % keywords
+\fi
+\makeatother
