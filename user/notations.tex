@@ -1,5 +1,36 @@
 % LTeX: enabled=false
 %%-----------------------------------------
+%% Standard notations
+%%-----------------------------------------
+\createbunch{\mathbb}{N,Z,Q,R,C,F,K,T,D,W,M} % like \N
+\NewDocumentCommand \Aff {} {\mathbb{A}} % Affine Space
+\NewDocumentCommand \Vect {} {\mathbb{V}} % Vector Space
+\createbunch{\ensuremath\fun}
+	{Hom,End,Aut,Ext,Tor,Cotor,Ker,Coker,coker,Id,id,tr,pt,Ob,Mor,Pic,Gal,Mod,Gr,gr,Ind,Proj,Ho,Sq} % List the use math operators
+\NewDocumentCommand \zero {} 
+	{\mathbb{0}} % zero object
+\NewDocumentCommand \one {} 
+	{\mathbb{1}} % unit object
+\NewDocumentCommand \vac {} 
+	{\ket{0}} % vacuum vector
+\NewDocumentCommand \Gm {} 
+	{\fun{\mathbb{G}}_{\mathrm{m}}} % Multiplicative group
+\NewDocumentCommand \Ga {} 
+	{\fun{\mathbb{G}}_{\mathrm{a}}} % Additive group
+\NewDocumentCommand \Dedekind {} 
+	{\mathcal{O}} % Dedekind domain
+\NewDocumentCommand \dedekind {} 
+	{{\scriptstyle\Dedekind}} % small Dedekind domain
+\NewDocumentCommand \Osheaf {} 
+	{\fun{\mathscr{O}}} % Structure sheaf
+\NewDocumentCommand \bigO {} 
+	{\fun{\mathbf{O}}} % Big O
+%%% Yoneda embedding from Theo Johnson-Freyd and Claudia Scheimbauer
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
+\NewDocumentCommand\yo{}{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
+% 
+%%-----------------------------------------
 %% Put your customized macros here
 %%-----------------------------------------
 \NewDocumentCommand \iso {} 
@@ -18,6 +49,7 @@
   { \ensuremath{ {#1}_{#2} + \cdots + {#1}_{#3} } }%Creat a sequence and then take summation
 \NewDocumentCommand \sequenceprod { m O{1} m }
   { \ensuremath{ {#1}_{#2} \cdot \cdots \cdot {#1}_{#3} } }%Creat a sequence and then take product
+\NewDocumentCommand \OK { O{K} } { \mathcal{O}_{#1} }%valuation ring	
 %
 %%% Building theory notations
 \NewDocumentCommand \Apt {}
