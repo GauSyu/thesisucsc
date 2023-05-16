@@ -49,3 +49,4 @@ Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I
 ### Some remark
 The template minimized the number of packages to avoid conflicts. Some possible conflicts:
 - packages modified fonts. Such as `amssymb` (because `newtxmath` already loaded `TXAMSadd` family, if you want to use `amssymb` instead, give `noamssymbols` option to `newtxmath` in ) 
+- out-of-date TeX distribution. Please use a TeX distribution newer than TeX Live 2022.
