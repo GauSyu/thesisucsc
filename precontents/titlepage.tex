@@ -4,7 +4,7 @@
 %% Title page
 %%-----------------------------------------
 \makeatletter
-\RenewDocumentCommand\maketitle{}{
+\RenewDocumentCommand\maketitle{s}{
 	\begin{titlepage}
 	\begin{singlespace}
 		\begin{center}
@@ -64,6 +64,7 @@
 		{\@deanlinetwo}\par
 		{\@deanlinethree}
 	\end{singlespace}
+	\IfBooleanF{#1}{}{
 	\newpage
 		\thispagestyle{empty}
 		\begin{center}
@@ -74,7 +75,7 @@
 			\@author \par
 			\@degreeyear \par}
 			\vfill
-		\end{center}
+		\end{center}}
 	\end{titlepage}
 }
 \makeatother
