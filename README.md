@@ -20,7 +20,7 @@ Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I
     - `index` is in `contents/index` [^3]
 8. Complie `main.tex`
 9. If you need to use packages or midify the settings, see `sample.pdf` or below for which .tex file to edit.
-10. Now the `\maketitle` has a stared version `\maketitle` which only print the title page, not the copyright.
+10. Now the `\maketitle` has a stared version `\maketitle*` which only print the title page, not the copyright.
 
 [^0]:You can empty these file and put your stuff instead.
 [^1]:Be careful about the package conflicts. One way to handle this is to use `scrhack` (see the manual of `scrbook`)
