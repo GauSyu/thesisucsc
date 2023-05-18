@@ -9,7 +9,7 @@ Repository: https://github.com/GauSyu/thesisucsc maintained by [Xu Gao](https://
 
 ### How to use?
 1. Put your notation macros in `user/notations` [^0]
-2. Put your environment definitions (such as `\newtheorem`) in `user/environments` [^0]
+2. Put your enviroment definitions (such as `\newtheorem`) in `user/enviroments` [^0]
 3. Put any other preambles in `user/additions` [^1]
 4. Put your metadata (such as `title`, `author`, `field`, `committeemember`, etc.) in `metadata`
 5. Put images in `images/`
