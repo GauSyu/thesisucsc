@@ -5,9 +5,11 @@ Following [**UCSC Dissertation Thesis Guidelines (Rev July, 2021)**](https://gra
 
 Inspired by [`UCSCTHESIS`](https://github.com/adamnovak/ucscthesis) class, but I use [`scrbook`](https://www.ctan.org/pkg/scrbook) class instead (so almost none of its code is used here).
 
+Repository: https://github.com/GauSyu/thesisucsc maintained by [Xu Gao](https://github.com/GauSyu)
+
 ### How to use?
 1. Put your notation macros in `user/notations` [^0]
-2. Put your enviroment definitions (such as `\newtheorem`) in `user/enviroments` [^0]
+2. Put your environment definitions (such as `\newtheorem`) in `user/environments` [^0]
 3. Put any other preambles in `user/additions` [^1]
 4. Put your metadata (such as `title`, `author`, `field`, `committeemember`, etc.) in `metadata`
 5. Put images in `images/`
