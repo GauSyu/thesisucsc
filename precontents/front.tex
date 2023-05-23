@@ -7,7 +7,7 @@
 \makeatletter
 \NewDocumentEnvironment{abstract}{}{
 	\clearpage
-	\thispagestyle{plain}
+	\pagestyle{plain}
 	\addchaptertocentry{}{Abstract}
 	\begin{center}
 		{\textbf{\Large Abstract}\par\bigskip
@@ -20,7 +20,7 @@
 	\fi
 	\par
 }{
-	\cleardoublepage
+	\clearpage
 }
 \makeatother
 %%-----------------------------------------
@@ -29,7 +29,7 @@
 %
 \RenewDocumentEnvironment{dedication}{}{
 	\clearpage
-	\thispagestyle{empty}
+	\pagestyle{plain}
 	\addchaptertocentry{}{Dedication}
 	\begin{center}
 		\ \ \ \
@@ -37,7 +37,7 @@
 }{
 		\vfill
 	\end{center}
-	\cleardoublepage
+	\clearpage
 }
 %%-----------------------------------------
 %% Acknowledgements page
@@ -45,14 +45,14 @@
 %
 \NewDocumentEnvironment{acknowledgement}{}{
 	\clearpage
-	\thispagestyle{plain}
+	\pagestyle{plain}
 	\addchaptertocentry{}{Acknowledgments}
 	\begin{center}
 		\textbf{\Large Acknowledgements}
 	\end{center}
 	\par
 }{
-	\cleardoublepage
+	\clearpage
 }
 %
 %%-----------------------------------------
