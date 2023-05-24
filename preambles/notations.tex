@@ -93,6 +93,17 @@
 	{ \ifblank{#1}{\:\cdot\:}{#1}, \ifblank{#2}{\:\cdot\:}{#2} } % <..,..>
 \DeclarePairedDelimiterX\inner[2]\lparen\rparen
 	{ \ifblank{#1}{\:\cdot\:}{#1}, \ifblank{#2}{\:\cdot\:}{#2} } % (..,..)
+\DeclarePairedDelimiterX\Liebraket[2]\lbrack\rbrack
+	{ \ifblank{#1}{\:\cdot\:}{#1}, \ifblank{#2}{\:\cdot\:}{#2} } % [..,..]
+\NewDocumentCommand\Lbrk{}{\Liebraket}%
+\DeclarePairedDelimiterX\ratioP[2]\lparen\rparen
+	{ \ifblank{#1}{\:\cdot\:}{#1}:\ifblank{#2}{\:\cdot\:}{#2} } % (..:..)
+\DeclarePairedDelimiterX\ratioB[2]\lbrack\rbrack
+	{ \ifblank{#1}{\:\cdot\:}{#1}:\ifblank{#2}{\:\cdot\:}{#2} } % [..:..]
+%%% Interval
+\intervalconfig{
+	soft open fences, % use (,) not ],[
+}
 %%% Sets
 \providecommand\given{} % emp delimiter
 \NewDocumentCommand \SetSymbol {o}
