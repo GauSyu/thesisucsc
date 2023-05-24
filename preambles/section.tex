@@ -4,14 +4,19 @@
 %%-----------------------------------------
 \KOMAoptions{%
 	chapterprefix=true, % prefix of chapter title
-	appendixprefix, % prefix of appendix
 	headings=standardclasses, % use standard format for chapter/section title
 	headings=normal, % size of chapter/section title
-	toc=listof, % The lists of floating environments, e. g. figures and tables, have unnumbered entries	in the table of contents
+	% listof=toc, % The lists of floating environments, e. g. figures and tables, have unnumbered entries	in the table of contents
+	listof=leveldown, % The lists of floating environments is in section level, not chapter level.
 	toc=bib, % The bibliography has an unnumbered entry in the table of contents
 	toc=index, % The index has an unnumbered entry in the table of contents
+	open=any, % Use use \clearpage, not	\cleardoublepage
 }
 \renewcommand{\sectionformat}{\S~\thesection\autodot\enskip} % Format of section number
 \renewcommand{\sectionmarkformat}{%
 	\textup{\S}\thesection\autodot\enskip%
 } % Format of section in runing header
+%
+% %%% Titles
+% \renewcaptionname{english}{\listfigurename}{Figures} % The title of Figures
+% \renewcaptionname{english}{\listtablename}{Tables} % The title of Tables
