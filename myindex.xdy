@@ -1,0 +1,38 @@
+(markup-locclass-list :open "\mydotfill" :close "" :sep ", ")
+
+(require "numeric-sort.xdy")
+
+(define-letter-group "A" :prefixes ("A" "a"))
+(define-letter-group "B" :prefixes ("B" "b"))
+(define-letter-group "C" :prefixes ("C" "c"))
+(define-letter-group "D" :prefixes ("D" "d"))
+(define-letter-group "E" :prefixes ("E" "e"))
+(define-letter-group "F" :prefixes ("F" "f"))
+(define-letter-group "G" :prefixes ("G" "g"))
+(define-letter-group "H" :prefixes ("H" "h"))
+(define-letter-group "I" :prefixes ("I" "i"))
+(define-letter-group "J" :prefixes ("J" "j"))
+(define-letter-group "K" :prefixes ("K" "k"))
+(define-letter-group "L" :prefixes ("L" "l"))
+(define-letter-group "M" :prefixes ("M" "m"))
+(define-letter-group "N" :prefixes ("N" "n"))
+(define-letter-group "O" :prefixes ("O" "o"))
+(define-letter-group "P" :prefixes ("P" "p"))
+(define-letter-group "Q" :prefixes ("Q" "q"))
+(define-letter-group "R" :prefixes ("R" "r"))
+(define-letter-group "S" :prefixes ("S" "s"))
+(define-letter-group "T" :prefixes ("T" "t"))
+(define-letter-group "U" :prefixes ("U" "u"))
+(define-letter-group "V" :prefixes ("V" "v"))
+(define-letter-group "W" :prefixes ("W" "w"))
+(define-letter-group "X" :prefixes ("X" "x"))
+(define-letter-group "Y" :prefixes ("Y" "y"))
+(define-letter-group "Z" :prefixes ("Z" "z"))
+
+(define-rule-set "ignore-special"
+  :rules (("?" "") ("." "") ("-" "") ("'" "") ("!" "") ("{" "") ("}" "")
+          ))
+
+(define-sort-rule-orientations (forward))
+(use-rule-set :run 0
+          :rule-set ("ignore-special"))
