@@ -30,6 +30,13 @@
 \DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
 \NewDocumentCommand\yo{}{\!\text{\usefont{U}{min}{m}{n}\symbol{'207}}\!}
 % 
+%%% valuation ring
+\NewDocumentCommand \OK { O{K} } { \mathscr{O}_{#1} }%valuation ring	
+\NewDocumentCommand \mK { O{K} } { \mathfrak{m}_{#1} }%valuation ring	
+%
+\NewDocumentCommand \Kalg { O{K} } { {#1}^{\mathrm{alg}} } % alg closure
+\NewDocumentCommand \Ksep { O{K} } { {#1}^{\mathrm{sep}} } % sep closure
+% 
 %%-----------------------------------------
 %% Put your customized macros here
 %%-----------------------------------------
@@ -43,63 +50,13 @@
   { \genfrac{[}{]}{0pt}{}{#1}{#2} } % q-binomial
 \NewDocumentCommand \vect { m } 
 	{ \mathbf{#1} }%Vector
-\NewDocumentCommand \sequence { m O{1} m }
+\NewDocumentCommand \sequence { m O{1} O{n} }
   { \ensuremath{ {#1}_{#2},\cdots,{#1}_{#3} } }%Creat a sequence
-\NewDocumentCommand \sequencesum { m O{1} m }
+\NewDocumentCommand \sequencesum { m O{1} O{n} }
   { \ensuremath{ {#1}_{#2} + \cdots + {#1}_{#3} } }%Creat a sequence and then take summation
-\NewDocumentCommand \sequenceprod { m O{1} m }
+\NewDocumentCommand \sequenceprod { m O{1} O{n} }
   { \ensuremath{ {#1}_{#2} \cdot \cdots \cdot {#1}_{#3} } }%Creat a sequence and then take product
-\NewDocumentCommand \OK { O{K} } { \mathcal{O}_{#1} }%valuation ring	
-%
-%%% Building theory notations
-\NewDocumentCommand \Apt {}
-  { \fun{\mathscr{A}} }%Affine apartment
-\NewDocumentCommand \vApt {}
-  { \fun{\prescript{v\mkern-7mu\relax}{}{\mathscr{A}}} }%Vectorial apartment
-\NewDocumentCommand \Build {}
-  { \fun{\mathscr{B}} }%Affine building
-\NewDocumentCommand \vBuild {}
-  { \fun{\prescript{v\!}{}{\mathscr{B}}} }%Vectorial building
-\NewDocumentCommand \vAff {}
-  { \fun{\prescript{v\mkern-6mu\relax}{}{\mathbb{A}}} }%Vectorial space
-\NewDocumentCommand \vChamber {}
-  { \fun{\prescript{v\!}{}{\mathcal{C}}} }%Vectorial Chambers
-\NewDocumentCommand \vFacet {}
-  { \fun{\prescript{v\mkern-2mu\relax}{}{\mathcal{F}}} }%Vectorial Facets
-\NewDocumentCommand \vPhi {}
-  { \fun{\prescript{v\!}{}{\Phi}} }%Ray root system
-\NewDocumentCommand \vSigma {}
-  { \fun{\prescript{v}{}{\Sigma}} }%Vectorial root system
-\NewDocumentCommand \vWall {}
-  { \fun{\prescript{v\mkern-2mu\relax}{}{\mathcal{H}}} }%Vectorial Walls
-\NewDocumentCommand \vWeyl {}
-  { \fun{\prescript{v\!}{}{\mathit{W}}} }%Vectorial Weyl group
-\NewDocumentCommand \valpha {}
-  { \prescript{v\mkern-5mu\relax}{}{\alpha} }%Vectorial affine root
-\NewDocumentCommand \vnu {}
-  { \prescript{v\!}{}{\nu} }%Vectorial nu
-\NewDocumentCommand \tf {}
-  { \prescript{\transp\!\relax}{}{f} }%Transpose of f
-\NewDocumentCommand \vf {}
-  % { \prescript{v\mkern-5mu\relax}{}{f} }
-	{	\leftindex^{v}{f}	}%Vectorial f
-\NewDocumentCommand \vC {}
-  { \prescript{v\!}{}{C} }
-	% {	\leftindex^{v}{C}	}%Vectorial C
-\NewDocumentCommand \vF {}
-  { \prescript{v\mkern-3mu\relax}{}{F} }
-	% {	\leftindex^{v}{F}	}%Vectorial F
-\NewDocumentCommand \vW {}
-  { \prescript{v\mkern-1mu\relax}{}{W} }%Vectorial W
-\NewDocumentCommand \vX {}
-  { \prescript{v\mkern-3mu\relax}{}{X} }%Vectorial X
-\NewDocumentCommand \type {} 
-	{	\mcal{I}	} % a type
-%
-%%% Differentials
-\NewDocumentCommand \odif {} {\fun{\mathrm{d}}}%
-\NewDocumentCommand \adif {} {\fun{\Delta}}%
-\NewDocumentCommand \asum {} {\fun{\Sigma}}%
+
 %
 %%% Long arrows
 \DeclareRobustCommand\longepimorphism
@@ -109,6 +66,11 @@
 	{\lhook\joinrel\longrightarrow} % monomorphism
 \NewDocumentCommand\longmono{}{\longmonomorphism}
 %
+%%% Text in math
+\NewDocumentCommand \txforall {O{\qquad}} {#1\text{for all}#1}%
+\NewDocumentCommand \txand {O{\qquad}} {#1\text{and}#1}%
+\NewDocumentCommand \txst {O{~}} {#1\text{s.t.}#1}%
+%
 %%% Conditions
 \NewDocumentCommand \condition { m m } {	&	&	#1	&	(#2)	}%
 %
@@ -116,3 +78,4 @@
 \NewDocumentCommand \blue {} { \color{blue} }
 \NewDocumentCommand \magenta {} { \color{magenta} }
 \NewDocumentCommand \red {} { \color{red} }
+%

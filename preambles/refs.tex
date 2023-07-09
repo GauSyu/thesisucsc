@@ -5,11 +5,14 @@
 %%% packages
 \usepackage{hyperref}
 \usepackage[%
-	capitalize,nameinlink
+	capitalize, % capitalise cross-reference names,regardless of where they appear in the sentence
+	nameinlink, % use name not the number as link
+	% noabbrev, % 
 ]{cleveref}
 %
 %%% hyperref setting
 \hypersetup{%
+	linktoc=all, % make text (section), page number (page), both (all) or nothing (none) be link on TOC, LOF and LOT
 	colorlinks=true,
 	linkcolor=blue,
 	citecolor=magenta,

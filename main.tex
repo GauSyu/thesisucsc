@@ -10,6 +10,7 @@
 \documentclass[%
 	% draft, % draft mode (no images, layout errors shown). Commented to switch to final mode
 	12pt, % font size
+	leqno, % put eq num to the left
 ]{scrbook} % Classes: scrartcl, scrreprt, scrbook
 %
 %%-----------------------------------------
@@ -30,8 +31,8 @@
 %% User-defined preambles
 %%-----------------------------------------
 \input{user/notations} % notations
-\input{user/enviroments} % enviroments
 \input{user/additions} % additions
+\input{user/enviroments} % enviroments
 %
 %%-----------------------------------------
 %% Pre-contents
@@ -62,15 +63,21 @@
 \begin{acknowledgement}
 	\input{contents/0.3.acknowledgements}
 \end{acknowledgement}
+\addtocontents{toc}{\protect\vspace{15pt}}%
 %% Mainmatter
 \mainmatter
 \input{contents/1.introduction}
 \input{contents/2.preliminary}
 \input{contents/3.mainwork}
+\clearpage
+\appendix
+\part*{Appendix}
+\addparttocentry{}{Appendix}
+	\input{contents/appendix}
+\addtocontents{toc}{\protect\vspace{10pt}}%
 \backmatter
-\input{contents/appendix}
-\begin{singlespace}
-	\input{contents/index}
-	\input{contents/bib}
-\end{singlespace}
+	\begin{singlespace}
+		\input{contents/index}
+		\input{contents/bib}
+	\end{singlespace}
 \end{document}
